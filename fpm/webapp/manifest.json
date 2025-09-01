@@ -53,7 +53,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.136.5",
       "libs": {
@@ -113,6 +113,11 @@
           "name": "PARENTGROUP__MembersObjectPage",
           "pattern": "PARENTGROUP({PARENTGROUPKey})/_Members({_MembersKey}):?query:",
           "target": "PARENTGROUP__MembersObjectPage"
+        },
+        {
+          "name": "PARENTGROUP__Members__ChildMemberObjectPage",
+          "pattern": "PARENTGROUP({PARENTGROUPKey})/_Members({_MembersKey})/_ChildMember({_ChildMemberKey}):?query:",
+          "target": "PARENTGROUP__Members__ChildMemberObjectPage"
         }
       ],
       "targets": {
@@ -178,8 +183,7 @@
               "navigation": {},
               "contextPath": "/PARENTGROUP/_Managers",
               "controlConfiguration": {
-                "_Managers/@com.sap.vocabularies.UI.v1.LineItem": {
-                }
+                "_Managers/@com.sap.vocabularies.UI.v1.LineItem": {}
               }
             }
           }
@@ -190,8 +194,25 @@
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "navigation": {},
+              "navigation": {
+                "_ChildMember": {
+                  "detail": {
+                    "route": "PARENTGROUP__Members__ChildMemberObjectPage"
+                  }
+                }
+              },
               "contextPath": "/PARENTGROUP/_Members"
+            }
+          }
+        },
+        "PARENTGROUP__Members__ChildMemberObjectPage": {
+          "type": "Component",
+          "id": "PARENTGROUP__Members__ChildMemberObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/PARENTGROUP/_Members/_ChildMember"
             }
           }
         }
