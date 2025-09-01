@@ -1,0 +1,14 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <Button
+        text="{='Custom Column' + %{GroupId}}"
+        press="handler.onButtonPress"
+        c:require="{
+            handler: 'fpm/fpm/ext/custombutton/CustomButton'
+        }"
+    >
+        
+    </Button>   
+</c:FragmentDefinition>

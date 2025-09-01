@@ -1,0 +1,14 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:macros="sap.fe.macros"
+>
+	<Dialog title="Dialog with Table Building Block">
+		<VBox class="sapUiMediumMargin">
+			<macros:Table metaPath="@com.sap.vocabularies.UI.v1.LineItem" readOnly="true" id="idLineItemTable" />
+		</VBox>
+		<endButton>
+			<Button text="Close Dialog" press=".closeDialog" />
+		</endButton>
+	</Dialog>
+</c:FragmentDefinition>

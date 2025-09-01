@@ -1,0 +1,83 @@
+<mvc:View 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:f="sap.f" 
+    xmlns="sap.m" 
+    xmlns:macros="sap.fe.macros"
+    xmlns:macrosTable="sap.fe.macros.table"
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    controllerName="fpm.fpm.ext.main.Main">
+    <f:DynamicPage  id="idDynamicPage">
+        <f:title>
+            <f:DynamicPageTitle id="idDynamicPageTitle">
+                <f:heading>
+                    <Title text="Group" level="H1"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader id="idDynamicPageHeader">
+                <macros:FilterBar 
+                    id="idFilterBar"
+                    metaPath="/PARENTGROUP/@com.sap.vocabularies.UI.v1.SelectionFields"/>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <macros:Table 
+                selectionMode="ForceMulti"
+                id="idTable" 
+                metaPath="/PARENTGROUP/@com.sap.vocabularies.UI.v1.LineItem" 
+                filterBar="idFilterBar" 
+                readOnly="true">
+                <macros:columns>
+                    <macrosTable:Column
+                        key="CCKey"
+                        header="CC"
+                        width="4rem"
+                        importance="High"
+                        horizontalAlign="Begin"
+                        placement="After"
+                        anchor="DataField::GroupId"
+                    >
+                        <Text text="CC" />
+                    </macrosTable:Column>
+                    <macrosTable:Column 
+                        key='ss'
+                        header="Button"
+                        width="10rem"
+                        importance="High"
+                        horizontalAlign="Begin"
+                        placement="Beifor"
+                        anchor="DataField::GroupId"
+                        >
+                         <core:Fragment fragmentName="fpm.fpm.ext.custombutton.CustomButton" type="XML" />
+                    </macrosTable:Column>
+                        <macrosTable:Column 
+                        key='Test02'
+                        header="ButtonTest02"
+                        width="15rem"
+                        importance="Low"
+                        horizontalAlign="Begin"
+                        placement="After"
+                        anchor="DataField::GroupName"
+                        >
+                        <Button text="{='Custom Column Test02' + %{GroupId}}" press='.onButtonTest02Press'/>
+                    </macrosTable:Column>
+                </macros:columns>
+                <macros:actions>
+                    <macrosTable:Action
+                        key="customAction"
+                        text="My Custom Action"
+                        press="onPressAction"
+                        requiresSelection="true"
+                    />
+                    <macrosTable:ActionGroup text="Grouped Actions" placement="After" anchor="customAction" key="customActionGroup">
+                        <macrosTable:Action text="Menu Action 1" press=".onPressMenuAction" key="action1" />
+                        <macrosTable:Action text="Menu Action 2" press=".onPressMenuAction" enabled="false" key="action2" />
+                    </macrosTable:ActionGroup>
+                </macros:actions>
+            </macros:Table>
+        </f:content>
+
+    </f:DynamicPage>
+</mvc:View>

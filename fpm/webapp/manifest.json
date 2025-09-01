@@ -1,0 +1,198 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "fpm.fpm",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:fpm",
+      "version": "1.18.5",
+      "toolsId": "bf579cf4-f2c5-444d-a035-d1b1c5a23b7f"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/ycx_sb_group/srvd/sap/ycx_sd_group/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.136.5",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "fpm.fpm.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "name": "PARENTGROUPMain",
+          "pattern": ":?query:",
+          "target": "PARENTGROUPMain"
+        },
+        {
+          "name": "PARENTGROUPObjectPage",
+          "pattern": "PARENTGROUP({PARENTGROUPKey}):?query:",
+          "target": "PARENTGROUPObjectPage"
+        },
+        {
+          "name": "PARENTGROUP__ManagersObjectPage",
+          "pattern": "PARENTGROUP({PARENTGROUPKey})/_Managers({_ManagersKey}):?query:",
+          "target": "PARENTGROUP__ManagersObjectPage"
+        },
+        {
+          "name": "PARENTGROUP__MembersObjectPage",
+          "pattern": "PARENTGROUP({PARENTGROUPKey})/_Members({_MembersKey}):?query:",
+          "target": "PARENTGROUP__MembersObjectPage"
+        }
+      ],
+      "targets": {
+        "PARENTGROUPMain": {
+          "type": "Component",
+          "id": "PARENTGROUPMain",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "navigation": {
+                "PARENTGROUP": {
+                  "detail": {
+                    "route": "PARENTGROUPObjectPage"
+                  }
+                }
+              },
+              "contextPath": "/PARENTGROUP",
+              "viewName": "fpm.fpm.ext.main.Main"
+            }
+          }
+        },
+        "PARENTGROUPObjectPage": {
+          "type": "Component",
+          "id": "PARENTGROUPObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {
+                "_Managers": {
+                  "detail": {
+                    "route": "PARENTGROUP__ManagersObjectPage"
+                  }
+                },
+                "_Members": {
+                  "detail": {
+                    "route": "PARENTGROUP__MembersObjectPage"
+                  }
+                }
+              },
+              "contextPath": "/PARENTGROUP"
+            }
+          } 
+        },
+        "PARENTGROUP__ManagersObjectPage": {
+          "type": "Component",
+          "id": "PARENTGROUP__ManagersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/PARENTGROUP/_Managers",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "PARENTGROUP": {
+                      "press": "fpm.fpm.ext.controller.PARENTGROUP.onApp",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "App"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "PARENTGROUP__MembersObjectPage": {
+          "type": "Component",
+          "id": "PARENTGROUP__MembersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/PARENTGROUP/_Members"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {}
+}
