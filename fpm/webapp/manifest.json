@@ -53,7 +53,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": false,
+    "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.136.5",
       "libs": {
@@ -130,7 +130,20 @@
                 }
               },
               "contextPath": "/PARENTGROUP",
-              "viewName": "fpm.fpm.ext.main.Main"
+              "viewName": "fpm.fpm.ext.main.Main",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "GROUP": {
+                      "press": "fpm.fpm.ext.controller.GROUP.onGROUP",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "GROUP"
+                    }
+                  }
+                }
+              }
             }
           }
         },
@@ -154,7 +167,7 @@
               },
               "contextPath": "/PARENTGROUP"
             }
-          } 
+          }
         },
         "PARENTGROUP__ManagersObjectPage": {
           "type": "Component",
@@ -165,16 +178,7 @@
               "navigation": {},
               "contextPath": "/PARENTGROUP/_Managers",
               "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.LineItem": {
-                  "actions": {
-                    "PARENTGROUP": {
-                      "press": "fpm.fpm.ext.controller.PARENTGROUP.onApp",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": true,
-                      "text": "App"
-                    }
-                  }
+                "_Managers/@com.sap.vocabularies.UI.v1.LineItem": {
                 }
               }
             }

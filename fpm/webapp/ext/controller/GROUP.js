@@ -4,7 +4,7 @@ sap.ui.define([
     'use strict';
 
     return {
-        onApp: function(oEvent) {
+        onGROUP: function(oEvent) {
             MessageToast.show("Custom handler invoked.");
         }
     };
