@@ -27,7 +27,7 @@
                 </macros:columns>
                 <macros:actions>
                     <macrosTable:Action key="customAction" text="My Custom Action" press="onPressAction" requiresSelection="true" placement="Before" anchor="customActionGroup"/>
-                    <macrosTable:ActionGroup text="Grouped Actions" placement="After" key="customActionGroup">
+                    <macrosTable:ActionGroup text="Grouped Actions" placement="Before" key="customActionGroup" id="idDialog" anchor="DataFieldForAction::com.sap.gateway.srvd.ycx_sd_group.v0001.Activate">
                         <macrosTable:Action text="Menu Action 1" press=".onPressMenuAction" key="action1"/>
                         <macrosTable:Action text="Menu Action 2" press=".onPressMenuAction" enabled="false" key="action2"/>
                     </macrosTable:ActionGroup>

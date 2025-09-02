@@ -146,6 +146,15 @@
                       "enabled": true,
                       "requiresSelection": true,
                       "text": "GROUP"
+                    },
+                    "ChangeAll": {
+                      "press": "fpm.fpm.ext.custombutton.CustomAction.onPressChangeAll",
+                      "text": "Change All",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "GroupId"
+                      },
+                      "enabled": true
                     }
                   }
                 },
