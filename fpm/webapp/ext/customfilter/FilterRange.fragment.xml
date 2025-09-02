@@ -1,0 +1,13 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+	<HBox alignItems="Center" c:require="{handler: 'fpm/fpm/ext/customfilter/FilterRange'}" width="100%">
+		<RangeSlider min="01" max="05" range="{path: 'filterValues>', type: 'sap.fe.macros.filter.type.Range' }">
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+		</RangeSlider>
+		<c:Icon src="sap-icon://reset" press="handler.onRatingRangeReset" class="sapUiSmallMarginBegin" />
+	</HBox>
+</c:FragmentDefinition>

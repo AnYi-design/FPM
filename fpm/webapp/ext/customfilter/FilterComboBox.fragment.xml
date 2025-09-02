@@ -1,0 +1,20 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>   
+    <ComboBox 
+        width="100%"
+        selectedKey="{
+            path: 'filterValues>', 
+            type: 'sap.fe.macros.filter.type.Value', 
+            formatOptions: { 
+                operator: 'fpm.fpm.ext.customfilter.FilterComboBox.formatFilter' 
+            }
+        }">
+		<items>
+			<c:Item key="Empty" />
+			<c:Item key="01" text="01" />
+			<c:Item key="02" text="02" />
+		</items>
+    </ComboBox>
+</c:FragmentDefinition>
