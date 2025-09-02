@@ -170,7 +170,15 @@
                   }
                 }
               },
-              "contextPath": "/PARENTGROUP"
+              "contextPath": "/PARENTGROUP",
+              "controlConfiguration": {
+                "_Members/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "TreeTable",
+                    "hierarchyQualifier": "YCX_TEXT_TREE"
+                  }
+                }
+              }
             }
           }
         },
