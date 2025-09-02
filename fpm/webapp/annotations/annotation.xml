@@ -19,11 +19,6 @@
                                 <AnnotationPath>@UI.LineItem</AnnotationPath>
                             </Collection>
                         </PropertyValue>
-                        <PropertyValue Property="GroupBy">
-                            <Collection>
-                                <PropertyPath>MemberId</PropertyPath>
-                            </Collection>
-                        </PropertyValue>
                         <PropertyValue Property="SortOrder">
                             <Collection>
                                 <Record Type="Common.SortOrderType">
@@ -31,6 +26,18 @@
                                     <PropertyValue Property="Descending" Bool="false"/>
                                 </Record>
                             </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="table">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#MEMBER_Variant"/>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
                         </PropertyValue>
                     </Record>
                 </Annotation>
@@ -43,6 +50,25 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="GroupName"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Groups"/>
+                            <PropertyValue Property="ID" String="GroupId"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Managers"/>
+                            <PropertyValue Property="ID" String="ManagersId"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Managers/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Members"/>
+                            <PropertyValue Property="ID" String="MembersId"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Members/@UI.SelectionPresentationVariant#table"/>
                         </Record>
                     </Collection>
                 </Annotation>
