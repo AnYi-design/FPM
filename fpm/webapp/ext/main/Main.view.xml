@@ -15,14 +15,17 @@
         <f:content>
             <macros:Table selectionMode="ForceMulti" id="idTable" metaPath="/PARENTGROUP/@com.sap.vocabularies.UI.v1.LineItem" filterBar="idFilterBar" readOnly="true">
                 <macros:columns>
-                    <macrosTable:Column key="CCKey" header="CC" width="4rem" importance="High" horizontalAlign="Begin" placement="After" anchor="DataField::GroupId">
+                    <macrosTable:Column key="CCKey" header="CC" width="4rem" importance="High" >
                         <Text text="CC"/>
                     </macrosTable:Column>
-                    <macrosTable:Column key="ss" header="Button" width="10rem" importance="High" horizontalAlign="Begin" placement="Beifor" anchor="DataField::GroupId">
+                    <macrosTable:Column key="ss" header="Button" width="10rem" importance="High" >
                         <core:Fragment fragmentName="fpm.fpm.ext.custombutton.CustomButton" type="XML"/>
                     </macrosTable:Column>
-                    <macrosTable:Column key="Test02" header="ButtonTest02" width="15rem" importance="Low" horizontalAlign="Begin" placement="After" anchor="DataField::GroupName">
+                    <macrosTable:Column key="Test02" header="ButtonTest02" width="15rem" importance="Low" >
                         <Button text="{='Custom Column Test02' + %{GroupId}}" press=".onButtonTest02Press"/>
+                    </macrosTable:Column>
+                    <macrosTable:Column key="changeall" header="Change All" width="4rem" importance="High" >
+                        <Input name="changeallname"/>
                     </macrosTable:Column>
                 </macros:columns>
                 <macros:actions>
