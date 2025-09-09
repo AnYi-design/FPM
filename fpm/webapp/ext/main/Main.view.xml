@@ -13,7 +13,7 @@
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <macros:Table selectionMode="ForceMulti" id="idTable" metaPath="/PARENTGROUP/@com.sap.vocabularies.UI.v1.LineItem" filterBar="idFilterBar" readOnly="true" enableFullScreen="true" rowCountMode="Auto">
+            <macros:Table selectionMode="ForceMulti" id="idTable" metaPath="/PARENTGROUP/@com.sap.vocabularies.UI.v1.LineItem" filterBar="idFilterBar" readOnly="true" enableFullScreen="true" rowCountMode="Auto" condensedTableLayout="true" disableColumnFreeze="true" disableCopyToClipboard="true" enableAutoColumnWidth="true" enableSelectAll="true" enablePastingOfComputedProperties="true">
                 <macros:columns>
                     <macrosTable:Column key="CCKey" header="CC" width="4rem" importance="High">
                         <Text text="CC"/>

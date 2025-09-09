@@ -51,23 +51,26 @@ sap.ui.define(
             },
             onButtonTest02Press:function(oEvent){
                 console.log("buttonTest02")
+
                 this.fragmentOne = this.getExtensionAPI().loadFragment({
                     id: "dialog",
                     name: "fpm.fpm.ext.customdialog.CustomDialog",
                     controller: this
                 });
+
+
 				this.fragmentOne.then(function (dialog) {
 					dialog.open();
+                    dialog.attachAfterClose("afterClose",function() {
+                        dialog._bDestroyed = true;
+                        dialog.destroy();
+                    });
 				});
             },
             closeDialog:function(){
                 this.fragmentOne && this.fragmentOne.then(function(dialog) {
                     if (dialog && !dialog.bIsDestroyed && dialog.close) {
                         dialog.close();
-                        dialog.destroy();
-                        
-                    } else {
-                        this.fragmentOne = null; 
                     }
                 });
             }
