@@ -1,0 +1,20 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <HBox alignContent="Center">
+        <MultiComboBox
+			selectedKeys="{path: 'filterValues>', type: 'sap.fe.macros.filter.type.MultiValue', formatOptions: { operator: 'fpm.fpm.ext.customfilter.MultiValue.multiValueRatingLevels' }}"
+		>
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+			<items>
+				<c:Item key="low" text="low" />
+				<c:Item key="medium" text="medium" />
+				<c:Item key="high" text="high" />
+			</items>
+		</MultiComboBox>   
+    </HBox>
+
+</c:FragmentDefinition>

@@ -168,6 +168,15 @@
                         "placement": "After",
                         "anchor": "GroupId"
                       }
+                    },
+                    "MultiValue": {
+                      "label": "GroupId MultiValue",
+                      "template": "fpm.fpm.ext.customfilter.MultiValue",
+                      "availability": "Default",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "GroupId"
+                      }
                     }
                   }
                 }
