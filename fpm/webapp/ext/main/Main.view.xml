@@ -10,6 +10,17 @@
         <f:header>
             <f:DynamicPageHeader id="idDynamicPageHeader">
                 <macros:FilterBar id="idFilterBar" metaPath="/PARENTGROUP/@com.sap.vocabularies.UI.v1.SelectionFields"/>
+               	<SegmentedButton
+                    id="CustomSegmentedButton"
+                    selectionChange=".onRatingChoicesSelectionChange"
+                >
+                    <items>
+                        <SegmentedButtonItem key="none" text="None" />
+                        <SegmentedButtonItem key="bad" text="Bad" />
+                        <SegmentedButtonItem key="okay" text="Okay" />
+                        <SegmentedButtonItem key="good" text="Good" />
+                    </items>
+                </SegmentedButton> 
             </f:DynamicPageHeader>
         </f:header>
         <f:content>

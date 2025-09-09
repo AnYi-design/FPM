@@ -73,6 +73,10 @@ sap.ui.define(
                         dialog.close();
                     }
                 });
+            },
+            onRatingChoicesSelectionChange:function(oEvent){
+                const key = oEvent.getParameter("item").getKey();
+                sap.m.MessageToast.show(key);
             }
         });
     }
